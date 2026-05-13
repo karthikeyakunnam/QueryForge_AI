@@ -1,0 +1,1 @@
+# Search embeddings in vector store

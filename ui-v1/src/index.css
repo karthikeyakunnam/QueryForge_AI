@@ -1,0 +1,261 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Modern color palette - inspired by Linear, Notion, and Apple */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    /* Primary: Modern blue gradient */
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 98%;
+
+    /* Secondary: Subtle gray */
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    /* Muted: Very subtle background */
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    /* Accent: Emerald for success states */
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 98%;
+
+    /* Destructive: Modern red */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Borders and inputs */
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar colors */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 221 83% 53%;
+
+    /* Custom semantic colors */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 98%;
+    --info: 221 83% 53%;
+    --info-foreground: 0 0% 98%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary: Brighter blue for dark mode */
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    /* Accent: Brighter emerald for dark mode */
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 221 83% 53%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 221 83% 53%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 221 83% 53%;
+
+    /* Custom semantic colors for dark mode */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 98%;
+    --info: 221 83% 53%;
+    --info-foreground: 0 0% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Modern glass morphism effects */
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-xl dark:bg-slate-900/80;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1),
+      0 2px 4px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(0, 0, 0, 0.04),
+      0 16px 32px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-input {
+    @apply bg-white/60 backdrop-blur-md border border-slate-200/50 dark:bg-slate-800/60 dark:border-slate-700/50;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05),
+      0 1px 2px rgba(0, 0, 0, 0.02);
+  }
+
+  /* Enhanced drag area with modern styling */
+  .drag-area {
+    @apply border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-2xl transition-all duration-300;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+    backdrop-filter: blur(10px);
+  }
+
+  .drag-area.active {
+    @apply border-primary/50 bg-primary/5;
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.1),
+      0 4px 12px rgba(59, 130, 246, 0.1);
+  }
+
+  /* Modern card styles */
+  .card-modern {
+    @apply bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1),
+      0 2px 4px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Enhanced button styles */
+  .btn-primary {
+    @apply bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(59, 130, 246, 0.2);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 6px 12px rgba(59, 130, 246, 0.3);
+  }
+
+  /* Modern input styles */
+  .input-modern {
+    @apply bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border border-slate-200/50 dark:border-slate-700/50;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05),
+      0 1px 2px rgba(0, 0, 0, 0.02);
+  }
+
+  .input-modern:focus {
+    @apply border-primary/50 ring-2 ring-primary/20;
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.2),
+      0 2px 4px rgba(59, 130, 246, 0.1);
+  }
+
+  /* Custom scrollbar with modern styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300/60 dark:bg-slate-700/60 rounded-full;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400/80 dark:bg-slate-600/80;
+  }
+
+  /* Enhanced focus styles */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary/20 focus:ring-offset-2 focus:ring-offset-background;
+  }
+
+  /* Modern gradient backgrounds */
+  .gradient-bg {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--background)) 0%,
+      hsl(var(--muted)) 100%
+    );
+  }
+
+  .gradient-primary {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary)) 0%,
+      hsl(221 83% 45%) 100%
+    );
+  }
+
+  /* Enhanced animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+    }
+    to {
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+    }
+  }
+}

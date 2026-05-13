@@ -1,0 +1,47 @@
+# === Python ===
+venv/
+.venv/
+backend/venv/
+**/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# === Environment / secrets ===
+.env
+.env.*
+backend/.env
+
+# === Node / React ===
+node_modules/
+frontend/node_modules/
+ui-v1/node_modules/
+build/
+dist/
+
+# === OS / IDE junk ===
+.DS_Store
+.idea/
+.vscode/
+
+# === Data / Models / Large binaries ===
+backend/uploads/
+data/
+models/
+checkpoints/
+*.pt
+*.bin
+*.ckpt
+*.dylib
+*.so
+*.zip
+*.tar
+*.pdf
+EOF
+
+
+
+

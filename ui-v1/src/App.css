@@ -1,0 +1,8 @@
+/* Modern App Styles - Cleaned up for new design system */
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Remove old styles - now handled by Tailwind and our design system */
